@@ -7,10 +7,33 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script>
+       const username = 'thiago-limadev';
+
+fetch(`https://api.github.com/users/${username}/repos`)
+.then(response => response.json())
+.then(data => {
+    const projetosContainer = document.getElementById('lista-projetos');
+
+    data.forEach(projeto => {
+        const projetoElement = document.createElement('div');
+        projetoElement.classList.add('projeto-card'); // Adiciona a classe 'projeto-card'
+
+        projetoElement.innerHTML = `
+            <h3>${projeto.name}</h3>
+            <p>${projeto.description}</p>
+            <a href="${projeto.html_url}" target="_blank">Ver no GitHub</a>
+        `;
+        projetosContainer.appendChild(projetoElement);
+    });
+})
+.catch(error => console.error('Erro ao obter os projetos:', error));
+
+    </script>
 </head>
 <body>
     <header>
-       <nav id="navbar">
+        <nav id="navbar">
             <div id="logo-container">
                 <img id="logo" src="root/assets/Images/tl_logo.png" alt="logo">
             </div>
@@ -27,10 +50,7 @@
     <section id="inicio">
         <div id="texto-inicio">
             <h1>Thiago Lima</h1>
-        
-            <h2>Desenvolvedor
-             </br>
-                Full-Stack</h2> 
+            <h2>Desenvolvedor Full-Stack</h2> 
         </div>
         <div id="foto-inicio">
             <img id="foto" src="https://avatars.githubusercontent.com/u/109220721?v=4" alt="foto-perfil">
@@ -40,12 +60,11 @@
     <section id="sobre">
         <h2>Sobre Mim</h2>
         <p>Sou um desenvolvedor Full-Stack apaixonado por tecnologia e inovação. Tenho experiência em diversas linguagens de programação e frameworks, e estou sempre buscando novos desafios. Acredito que a tecnologia pode ser uma ferramenta poderosa para melhorar a vida das pessoas, e me dedico a criar soluções inovadoras e eficientes.</p>
-       
     </section>
 
     <section id="projetos">
         <h2>Projetos</h2>
-        <p><!-- Os projetos serão inseridos aqui --></p>
+        <div id="lista-projetos"><!-- Aqui os projetos serão inseridos --></div>
     </section>
 </body>
 </html>

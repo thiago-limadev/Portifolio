@@ -76,9 +76,7 @@ section {
     padding: 20px;
 }
 
-#projetos {
-    color: var(--navbar-text-color);
-}
+
 
 
 #inicio {
@@ -143,4 +141,54 @@ section {
     background-color: var(--logo-bg-color);
     border-radius: 50%;
     
+}
+
+#lista-projetos {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#projetos {
+    color: var(--navbar-text-color);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 20px; 
+    
+}
+
+.projeto-card {
+    width: calc(50% - 20px); 
+    margin-bottom: 20px; 
+    margin-right: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    box-sizing: border-box; 
+}
+
+.projeto-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.projeto-card h3 {
+    margin-top: 0;
+}
+
+.projeto-card p {
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+    color: #fdfdfd;
+}
+
+.projeto-card a {
+    text-decoration: none;
+    color: #0366d6; 
+    font-weight: bold;
+}
+
+.projeto-card a:hover {
+    text-decoration: underline;
 }
